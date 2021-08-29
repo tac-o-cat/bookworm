@@ -5,8 +5,7 @@
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "set NODE_ENV=development && electron ./dist/main.bundle.js",
-    "dev": "webpack --watch",
-    "build": "webpack"
+    "dev": "webpack && npm run start"
   },
   "keywords": [],
   "author": "Mini Kim",
