@@ -7,7 +7,7 @@ let mainWindow: BrowserWindow;
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 900,
+    width: 500,
     height: 680,
     center: true,
     kiosk: !isDev,
@@ -15,8 +15,9 @@ const createWindow = () => {
     fullscreen: false,
     fullscreenable: true,
     webPreferences: {
-      //   nodeIntegration: true,
-      //   enableRemoteModule: true,
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      contextIsolation: false,
       devTools: isDev
     }
   });
