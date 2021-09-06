@@ -15,9 +15,6 @@ const createWindow = () => {
     fullscreen: false,
     fullscreenable: true,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
-      contextIsolation: false,
       devTools: isDev
     }
   });
