@@ -8,7 +8,7 @@ const Dotenv = require("dotenv-webpack");
 const distDir = path.resolve(__dirname, "dist");
 
 const commonConfig = {
-  mode: "development",
+  mode: process.env.ENV || "development",
   devtool: "inline-source-map",
   output: {
     path: distDir
@@ -73,6 +73,7 @@ mainConfig.plugins = [
     ]
   })
 ];
+mainConfig.devServer = { port: 3000 };
 
 const rendererConfig = lodash.cloneDeep(commonConfig);
 rendererConfig.entry = "./src/renderer/index.tsx";

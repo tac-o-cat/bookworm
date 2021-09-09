@@ -15,20 +15,24 @@ const createWindow = () => {
     fullscreen: false,
     fullscreenable: true,
     webPreferences: {
-      devTools: isDev
+      devTools: isDev,
+      nodeIntegration: true,
+      contextIsolation: false
     }
   });
 
-  mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "./index.html"),
-      protocol: "file:",
-      slashes: true
-    })
-  );
-
   if (isDev) {
-    mainWindow.webContents.openDevTools({ mode: "detach" });
+    console.log("여기로 들어오다..");
+    mainWindow.loadURL("http://localhost:3000");
+    mainWindow.webContents.openDevTools();
+  } else {
+    mainWindow.loadURL(
+      url.format({
+        pathname: path.join(__dirname, "./index.html"),
+        protocol: "file:",
+        slashes: true
+      })
+    );
   }
 
   mainWindow.setResizable(true);
