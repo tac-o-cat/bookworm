@@ -1,9 +1,10 @@
 import { app, BrowserWindow } from "electron";
-import * as isDev from "electron-is-dev";
 import * as path from "path";
 import * as url from "url";
 
 let mainWindow: BrowserWindow;
+
+const isDev = process.env.ENV === "development";
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
