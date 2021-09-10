@@ -4,7 +4,9 @@
   "description": "",
   "main": "./dist/main.bundle.js",
   "scripts": {
-    "dev": "set NODE_ENV=development && concurrently \"webpack serve\" \" electron .\""
+    "dev": "cross-env ENV=development concurrently \"webpack serve\" \" electron .\"",
+    "prod": "cross-env ENV=production concurrently \"webpack\" \"electron .\"",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "Mini Kim",
@@ -43,7 +45,6 @@
     "webpack-dev-server": "^4.1.0"
   },
   "dependencies": {
-    "dotenv-webpack": "^7.0.3",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

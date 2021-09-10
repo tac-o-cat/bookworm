@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const lodash = require("lodash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
 
 const distDir = path.resolve(__dirname, "dist");
 
@@ -41,7 +40,7 @@ const commonConfig = {
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ["dist"] })],
+  // plugins: [new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ["dist"] })],
   externals: {
     react: "React",
     "react-dom": "ReactDOM"
@@ -82,8 +81,7 @@ rendererConfig.output.filename = "renderer.bundle.js";
 rendererConfig.plugins = [
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, "./public/index.html")
-  }),
-  new Dotenv({ ignoreStub: true })
+  })
 ];
 rendererConfig.module.rules.push({ test: /\.css$/, use: ["style-loader", "css-loader", "postcss-loader"] });
 
